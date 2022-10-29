@@ -48,6 +48,5 @@ if start == "yes":
             break
 elif start == "no":
     print("Maybe next time")        
-
 else:
     print("'" + start  + "'" + " is not valid!")
