@@ -24,7 +24,7 @@ _____________________________________________________________
 
 another = "yes"
 
-start = input("Do you want to continue and download a Youtube video? (yes/no): ")
+start = input("Do you want to continue and download a YouTube video? (yes/no): ")
 start = start.lower()
 
 if start == "yes":
