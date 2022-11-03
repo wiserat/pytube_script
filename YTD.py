@@ -22,13 +22,28 @@ _____________________________________________________________
 |___________________________________________________________|
 """)
 
-another = "yes"
+start = "yes"
 
-start = input("Do you want to continue and download a YouTube video? (yes/no): ")
-start = start.lower()
+while start == "yes" or "no" or "opt":
 
-if start == "yes":
-    while another == "yes":
+    start = input("Do you want to continue and download a YouTube video? (yes/no/opt/): ")
+    start == start.lower
+                
+    while start == "opt":
+        quality_selection = input("Enter the video quality you want (1=highest, 2=lowest, 3=exit):")
+        if quality_selection == "1":
+            qs = 1
+            break
+        elif quality_selection == "2":
+            qs = 2
+            break
+        elif quality_selection == "3":
+            qs = 3
+            break
+        else:
+            print("Invalid input!")
+                
+    while start == "yes":
         link = input("Enter the url of the video: ")
         yt = YouTube(link)
         print("\n")
@@ -36,17 +51,21 @@ if start == "yes":
         print("Author: ", yt.author)
         print("\n")
         print("\rDownloading...", end="")
-        yd = yt.streams.get_highest_resolution()
+        if qs == 1:
+            yd = yt.streams.get_highest_resolution()
+        elif qs == 2:
+            yd = yt.streams.get_lowest_resolution()
+        elif qs == 3:
+            yd = yt.streams.get_highest_resolution()
+        else:
+            yd = yt.streams.get_highest_resolution()
+            
         yd.download('./YTDownloaded')
-        print("\rDownloaded succesfully")
+        print("\rDownloaded succesfully, feel free to download another")
         print("! YTDownloaded folder was created in same folder as is this script !")
         print("\n")
-        another = input("Wanna download another one? (yes/no): ")
-        another = another.lower()
-        if another == "no":
-            print("Pleasure working for you!")
-            break
-elif start == "no":
-    print("Maybe next time")        
-else:
-    print("'" + start  + "'" + " is not valid!")
+        break
+
+    if start == "no":
+        print("See ya later")
+        break
