@@ -111,7 +111,7 @@ while start == "y" or "n" or "auto":
         yd = yt.streams.get_highest_resolution()
         yd.download('./YTDownloaded')
         print("\rDownloaded succesfully")
-        print("! YTDownloaded folder was created in same folder as is this script !")
+        print("! YTDownloaded folder was created in the same folder as this script !")
         print("\n")
         another = input("Do you want to download another one?(y/n/auto): ")
         if another == "auto":
